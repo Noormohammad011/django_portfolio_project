@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.6">
-    <title>Album example · Bootstrap</title>
+    <title>{{blog.title}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
@@ -57,7 +57,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item">
                         <a class="nav-link"
                             href="https://www.discudemy.com/go/learn-data-analysis-using-pandas-and-python">Gmail <span
                                 class="sr-only">(current)</span></a>
@@ -66,7 +66,7 @@
                         <a class="nav-link"
                             href="{% static '64924115_106815460602977_3554943434466787328_n.jpg''%}">Resume</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
                     </li>
                 </ul>
@@ -75,36 +75,15 @@
     </header>
 
     <main role="main">
+        <div class="container">
 
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1>Hi, I'm Noormohammad</h1>
-                <p class="lead text-muted">I love django website. I try to make this little website</p>
-                <p>
-                    <a href="mailto:nayanrahman51@gmail.com" class="btn btn-primary my-2">Mail Me</a>
-
-                </p>
-                <img src="{% static 'pip_installation.png' %}" alt="" height="30%" width="30%">
-            </div>
-        </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row">
-                    {% for job in jobs.all %}
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <img class="bd-placeholder-img card-img-top" width="100%" height="225"
-                                src="{{ job.image.url }}">
-                            <div class="card-body">
-                                <p class="card-text">{{ job.summary }}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
+            <h1 class="text-center">{{ blog.title}}</h1>
+            <p class="text-center">{{ blog.pub_date}}</p>
+            <br>
+            <p class="text-center"><img src="{{ blog.image.url }}" alt="" class="img-fluid"></p>
+            <br>
+            <br>
+            <p>{{ blog.body }}</p>
         </div>
     </main>
 
